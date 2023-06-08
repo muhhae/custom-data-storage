@@ -1,6 +1,8 @@
 #pragma once
 
-#include <string>
+#include <iostream>
+#include <fstream>
+
 #include "Entity.hpp"
 
 class CustomParser
@@ -12,13 +14,11 @@ class CustomParser
     
     public:
         std::string get(std::string match_type, std::string match_value, std::string find_type);
-        void set(std::string match_type, std::string match_value, std::string find_type);
+        void set(std::string match_type, std::string match_value, std::string find_type, std::string new_value);
 
-        void setSource();
+        void setSource(std::string source);
         std::string getSource();
 
         void load();
         void update();
-
-        
 };
