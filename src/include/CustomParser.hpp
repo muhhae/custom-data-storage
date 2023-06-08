@@ -9,7 +9,6 @@ class CustomParser
 {
     private :
         std::string source;
-        std::string temp_data;
         std::vector<Entity> entity;
     
     public:
@@ -19,6 +18,9 @@ class CustomParser
         void setSource(std::string source);
         std::string getSource();
 
+        void add(Entity et);
         void load();
         void update();
+
+        void print();
 };

@@ -27,12 +27,12 @@ std::string CustomParser::getSource()
 
 void CustomParser::load()
 {
-    std::ifstream data_stream(source);
+    std::ifstream dt_file(source);
     std::string str_tmp;
 
     Entity et;
 
-    while (std::getline(data_stream, str_tmp))
+    while (std::getline(dt_file, str_tmp))
     {
         // std::cout<<"line : "<<str_tmp<<std::endl;
         if (str_tmp == "@@@")
@@ -61,8 +61,38 @@ void CustomParser::load()
 
         et.add(type, value);   
     }
+    dt_file.close();
 }
 void CustomParser::update()
 {
+    std::string temp_data = ""; 
+    for(auto et : entity)
+    {
+        et.AppendToString(temp_data);
+        temp_data += "\n";
+    }
+    temp_data.erase(temp_data.size()-1);
+    
+    std::ofstream dt_file;
 
+    dt_file.open(source);
+    dt_file << temp_data;
+    dt_file.close();
+}
+
+void CustomParser::print()
+{
+    std::string temp_data = ""; 
+    for(auto et : entity)
+    {
+        et.AppendToString(temp_data);
+        temp_data += "\n";
+    }
+    temp_data.erase(temp_data.size()-1);
+    std::cout<<temp_data;
+}
+
+void CustomParser::add(Entity et)
+{
+    entity.push_back(et);
 }

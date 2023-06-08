@@ -1,5 +1,5 @@
 # Simple Data Storage for C++
-# Note : still in progress
+# Note : still in progress (basic function is working)
 <br>
 format of the data :
 
@@ -21,5 +21,25 @@ mahasiswa.setSource("data/mahasiswa");
 mahasiswa.load();
 std::cout<<mahasiswa.get("nama", "Muhammad Da", "jurusan");
 ```
-On that code "nama" is data type, "Muhammad Da" is expected value of it. If there is entity that have "nama" = "Muhammad Da" then it returns the value of "jurusan".
+In this code "nama" is data type, "Muhammad Da" is expected value of it. If there is entity that have "nama" = "Muhammad Da" then it returns the value of "jurusan".
+
+```
+mahasiswa.set("nama", "Muhammad Haekal", "nrp", "666");
+mahasiswa.update();
+```
+in this code it set entity that has "name" = "Muhammad Haekal", with "nrp" = "666"
+```
+Entity newEt;
+newEt.add("nama", "Muhammad Sumbul");
+newEt.add("jenis", "Manusia");
+```
+function add() adding new data to entity.
+
+```
+mahasiswa.add(newEt);
+mahasiswa.update();
+```
+Adding entity to CustomDataParser.
+
+Function update() will update the file
 
