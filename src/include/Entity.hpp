@@ -7,12 +7,12 @@
 class Entity
 {
     private:
-        struct data
+        struct dataStruct
         {
             std::string type;
             std::string value;
         };
-        std::vector<std::string> data;
+        std::vector<dataStruct> data;
 
     public:
         void add(std::string type, std::string value);
