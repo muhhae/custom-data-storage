@@ -1,41 +1,56 @@
 #include "include/Entity.hpp"
 
-void Entity::add(std::string type, std::string value)
+namespace dt
 {
-    dataStruct dt;
-    dt.type = type;
-    dt.value = value;
-    data.push_back(dt);
-}
-        
-void Entity::set(std::string type, std::string value)
-{
-    for (auto& dt : data)
+    void Entity::add(std::string type, std::string value)
     {
-        if (dt.type == type)
+        dataStruct dt;
+        dt.type = type;
+        dt.value = value;
+        data.push_back(dt);
+    }
+
+    void Entity::remove(std::string type)
+    {
+        for (int i = 0; i < data.size(); i++)
         {
-            dt.value = value;
-            return;
+            if (data.at(i).type == type)
+            {
+                data.erase(data.begin() + i);
+                i--;
+            }
         }
     }
-}
 
-std::string Entity::get(std::string type)
-{
-    for (const auto& dt : data)
+    void Entity::set(std::string type, std::string value)
     {
-        if (dt.type == type)
+        for (auto& dt : data)
         {
-            return dt.value;
+            if (dt.type == type)
+            {
+                dt.value = value;
+                return;
+            }
         }
     }
-}
 
-void Entity::AppendToString(std::string& str)
-{
-    for (const auto& dt : data)
+    std::string Entity::get(std::string type)
     {
-        str += dt.type + "=" + dt.value + "\n";
+        for (const auto& dt : data)
+        {
+            if (dt.type == type)
+            {
+                return dt.value;
+            }
+        }
     }
-    str += "@@@";
+
+    void Entity::AppendToString(std::string& str)
+    {
+        for (const auto& dt : data)
+        {
+            str += dt.type + "=" + dt.value + "\n";
+        }
+        str += "@@@";
+    }
 }

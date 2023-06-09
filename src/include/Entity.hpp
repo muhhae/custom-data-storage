@@ -4,21 +4,25 @@
 #include <vector>
 #include <fstream>
 
-class Entity
+namespace dt
 {
-    private:
-        struct dataStruct
-        {
-            std::string type;
-            std::string value;
-        };
-        std::vector<dataStruct> data;
+    class Entity
+    {
+        private:
+            struct dataStruct
+            {
+                std::string type;
+                std::string value;
+            };
+            std::vector<dataStruct> data;
 
-    public:
-        void add(std::string type, std::string value);
-        
-        void set(std::string type, std::string value);
-        std::string get(std::string type);
+        public:
+            void add(std::string type, std::string value);
+            void remove(std::string type);
+            
+            void set(std::string type, std::string value);
+            std::string get(std::string type);
 
-        void AppendToString(std::string& str);
-};
+            void AppendToString(std::string& str);
+    };
+}

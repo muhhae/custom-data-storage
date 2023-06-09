@@ -5,22 +5,24 @@
 
 #include "Entity.hpp"
 
-class CustomParser
+namespace dt
 {
-    private :
-        std::string source;
-        std::vector<Entity> entity;
-    
-    public:
-        std::string get(std::string match_type, std::string match_value, std::string find_type);
-        void set(std::string match_type, std::string match_value, std::string find_type, std::string new_value);
+    class CustomParser
+    {
+        private :
+            std::string source;
+            std::vector<Entity> entity;
+        
+        public:
+            Entity& find(std::string match_type, std::string match_value);
 
-        void setSource(std::string source);
-        std::string getSource();
+            void setSource(std::string source);
+            std::string getSource();
 
-        void add(Entity et);
-        void load();
-        void update();
+            void add(Entity et);
+            void load();
+            void update();
 
-        void print();
-};
+            void print();
+    };
+}

@@ -19,15 +19,15 @@ Set source for it. Call function load. And you can use it as you like with funct
 CustomParser mahasiswa;
 mahasiswa.setSource("data/mahasiswa");
 mahasiswa.load();
-std::cout<<mahasiswa.get("nama", "Muhammad Da", "jurusan");
+std::cout<<mahasiswa.find("nama", "Muhammad Da").get("jurusan);
 ```
 In this code "nama" is data type, "Muhammad Da" is expected value of it. If there is entity that have "nama" = "Muhammad Da" then it returns the value of "jurusan".
 
 ```
-mahasiswa.set("nama", "Muhammad Haekal", "nrp", "666");
+mahasiswa.find("nama", "Muhammad Haekal").set("jurusan", "Teknik Perlelean");
 mahasiswa.update();
 ```
-in this code it set entity that has "name" = "Muhammad Haekal", with "nrp" = "666"
+in this code it get will return Entity that has "name" = "Muhammad Haekal", with "nrp" = "666". Then using set function in entity class it will change it's "jurusan" with "Teknik Perlelean"
 ```
 Entity newEt;
 newEt.add("nama", "Muhammad Sumbul");
