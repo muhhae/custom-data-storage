@@ -43,6 +43,7 @@ namespace dt
                 return dt.value;
             }
         }
+        return "";
     }
 
     void Entity::AppendToString(std::string& str)

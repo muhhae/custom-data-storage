@@ -15,6 +15,7 @@ namespace dt
         
         public:
             Entity& find(std::string match_type, std::string match_value);
+            std::vector<Entity> get();
 
             void setSource(std::string source);
             std::string getSource();

@@ -8,6 +8,13 @@ namespace dt
         {
             if (et.get(match_type) == match_value) return et;
         }
+
+        return *new Entity();
+    }
+
+    std::vector<Entity> CustomParser::get()
+    {
+        return entity;
     }
 
     void CustomParser::setSource(std::string source)
